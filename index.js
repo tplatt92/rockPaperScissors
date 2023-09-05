@@ -1,6 +1,6 @@
-const playerScore = 0;
-const computerScore = 0;
-const result = '';
+let playerScore = 0;
+let computerScore = 0;
+
 
 
 function getComputerChoice() {
@@ -14,7 +14,10 @@ getComputerChoice()
 
 
 
-function playRound(playerSelection, computerSelection) {
+function playRound(playerSelection) {
+    let computerSelection = getComputerChoice();
+    let result = '';
+
     if (playerSelection === computerSelection) {
         result = `Tie`
 
@@ -23,12 +26,15 @@ function playRound(playerSelection, computerSelection) {
     playerSelection === 'Rock' && computerSelection === 'Scissors'||
     playerSelection === 'Scissors' && computerSelection === 'Paper') {
         
+        playerScore++;
         result = 'Player Wins'
 
     } else {
-
-        result = `Computer Wins`
+        computerScore++;
+        result = `Computer Wins`;
 
     }
-    return result 
+    return result; 
 }
+
+playRound('Rock')
