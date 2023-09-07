@@ -1,5 +1,17 @@
 let playerScore = 0;
 let computerScore = 0;
+let playerSelection;
+let computerSelection;
+const resultDiv = document.querySelector("div.result");
+const buttons = document.querySelectorAll(".button")
+
+
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    playerSelection = button.alt.toLowerCase();
+    playRound(playerSelection, computerSelection)
+  })
+})
 
 function getComputerChoice() {
   const choices = ['Rock', 'Paper', 'Scissors'];
@@ -24,9 +36,12 @@ function playRound(playerSelection) {
     computerScore += 1;
     result = 'Computer Wins';
   }
+  resultDiv.innerHTML = `<p> ${result} </p>`;
   return result;
 }
 
-console.log(playRound('Rock'));
-console.log(`Player Score: ${playerScore}`);
-console.log(`Computer Score: ${computerScore}`);
+
+
+
+// grab element div
+// render out result
